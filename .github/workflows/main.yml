@@ -20,7 +20,7 @@ jobs:
           npm install
           npm run build
           npm run test
-          cd dist
+          cd dist/my-demo-app
           npm link
           cd ..
           cd ..
