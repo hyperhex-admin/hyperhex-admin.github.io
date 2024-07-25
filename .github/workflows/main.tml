@@ -1,0 +1,39 @@
+name: Build and test
+
+on:
+  push:
+    branches: [release]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20.15.0
+
+      - name: Prepare
+        run: |
+          cd src
+          npm install
+          npm run build
+          npm run test
+          cd dist
+          npm link
+          cd ..
+          cd ..
+          npm install -g @angular/cli
+          ng new your-angular-project --defaults
+          cd your-angular-project
+          npm link angular-cli-ghpages
+          ng add angular-cli-ghpages
+
+      - name: Deploy
+        if: github.ref == 'refs/heads/master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd your-angular-project
+          ng deploy --name="The Buildbot" --email="buildbot@angular2buch.de" --cname=angular-cli-ghpages.angular.schule
