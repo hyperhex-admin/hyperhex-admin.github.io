@@ -25,15 +25,15 @@ jobs:
           cd ..
           cd ..
           npm install -g @angular/cli
-          ng new your-angular-project --defaults
-          cd your-angular-project
+          ng new hyperhex.github.io --defaults
+          cd hyperhex.github.io
           npm link angular-cli-ghpages
           ng add angular-cli-ghpages
 
       - name: Deploy
         if: github.ref == 'refs/heads/master'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DGITHUB_TOKEN }}
         run: |
-          cd your-angular-project
+          cd hyperhex.github.io
           ng deploy --name="The Buildbot" --email="buildbot@angular2buch.de" --cname=angular-cli-ghpages.angular.schule
