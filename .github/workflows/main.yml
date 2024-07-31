@@ -5,10 +5,7 @@ on:
     branches:
       - development
 
-permissions:
-  contents: write
-  pages: write
-  id-token: write
+permissions: write-all
 
 jobs:
   build-and-deploy:
@@ -39,6 +36,6 @@ jobs:
         run: echo "hyperhexsolutions.com" >> dist/my-demo-app/CNAME
 
       - name: Deploy to GitHub Pages 
-        run: npx ngh --dir=dist/my-demo-app --verbose
+        run: npx ngh --dir=dist/my-demo-app 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
