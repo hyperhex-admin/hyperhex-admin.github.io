@@ -5,12 +5,40 @@ on:
     branches:
       - development
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  
 jobs:
   build-and-deploy:
+    runs-on: ubuntu-latest
 
-      uses: bitovi/github-actions-angular-to-github-pages@v1.0.0
-      with:
-        path: dist/my-demo-app  
-        build_command: ng build --base-href https://hyperhexsolutions.com 
-                
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20' 
+      
+      - name: Install dependencies
+        run: npm install -g @angular/cli
+      
+      - name: Install dependencies
+        run: npm i 
+
+      - name: Install GHPAGES
+        run: ng add angular-cli-ghpages --skip-confirmation
+
+      - name: Build the application
+        run: ng build --base-href https://hyperhexsolutions.com
+
+      - name: Add CNAME file
+        run: echo "hyperhexsolutions.com" >> dist/my-demo-app/CNAME
+
+      - name: Deploy to GitHub Pages
+        run: npx ngh --dir=dist/my-demo-app
+        env:
+          GITHUB_TOKEN: ${{ secrets.DGITHUB_TOKEN }} 
