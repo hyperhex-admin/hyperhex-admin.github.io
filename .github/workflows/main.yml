@@ -8,32 +8,6 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20' 
-      
-      - name: Install dependencies
-        run: npm install -g @angular/cli
-      
-      - name: Install dependencies
-        run: npm i 
-
-      - name: Install GHPAGES
-        run: ng add angular-cli-ghpages --skip-confirmation
-
-      - name: Build the application
-        run: ng build --base-href https://hyperhexsolutions.com
-
-      - name: Add CNAME file
-        run: echo "hyperhexsolutions.com" >> dist/my-demo-app/CNAME
-
-      - name: Deploy Angular to GitHub Pages
      
       uses: bitovi/github-actions-angular-to-github-pages@v1.0.0
       with:
