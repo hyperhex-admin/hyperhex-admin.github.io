@@ -16,10 +16,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20.15' # Specify the Node.js version you need
+          node-version: '20' 
 
       - name: Install dependencies
-        run: npm cache clean --force
+        run: npm install
 
       - name: Build the application
         run: ng build --base-href https://hyperhexsolutions.com
@@ -30,4 +30,4 @@ jobs:
       - name: Deploy to GitHub Pages
         run: npx ngh --dir=dist/my-demo-app
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
