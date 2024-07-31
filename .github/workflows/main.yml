@@ -19,7 +19,9 @@ jobs:
           node-version: '20' 
 
       - name: Install dependencies
-        run: npm i --legacy-peer-deps
+        run: npm i 
+        run: npm i -g angular-cli-ghpages
+        run: ng add angular-cli-ghpages
 
       - name: Build the application
         run: ng build --base-href https://hyperhexsolutions.com
