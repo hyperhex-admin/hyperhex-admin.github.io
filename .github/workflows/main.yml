@@ -17,10 +17,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '20' 
+      
       - name: Install dependencies
         run: npm install -g @angular/cli
       
-        - name: Install dependencies
+      - name: Install dependencies
         run: npm i npm install -g @angular/cli
 
       - name: Install GHPAGES
