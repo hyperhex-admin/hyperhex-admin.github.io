@@ -19,7 +19,7 @@ jobs:
           node-version: '20.15' # Specify the Node.js version you need
 
       - name: Install dependencies
-        run: npm install
+        run: npm cache clean --force
 
       - name: Build the application
         run: ng build --base-href https://hyperhexsolutions.com
