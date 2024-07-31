@@ -36,5 +36,5 @@ jobs:
         run: echo "hyperhexsolutions.com" >> dist/my-demo-app/CNAME
 
       - name: Deploy to GitHub Pages 
-        run: npx ngh --dir=dist/my-demo-app 
+        run: npx ngh --no-silent --dir=dist/my-demo-app 
 
