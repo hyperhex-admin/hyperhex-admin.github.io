@@ -38,7 +38,7 @@ jobs:
       - name: Add CNAME file
         run: echo "hyperhexsolutions.com" >> dist/my-demo-app/CNAME
 
-      - name: Deploy to GitHub Pages
-        run: npx ngh --dir=dist/my-demo-app
+      - name: Deploy to GitHub Pages 
+        run: npx ngh --dir=dist/my-demo-app --verbose
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
