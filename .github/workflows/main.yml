@@ -35,5 +35,4 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: npx ngh --dir=dist/my-demo-app
-        env:
-          GITHUB_TOKEN: ${{ secrets.DGITHUB_TOKEN }} 
+
