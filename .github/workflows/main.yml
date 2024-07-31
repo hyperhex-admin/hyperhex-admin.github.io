@@ -39,7 +39,10 @@ jobs:
 
       - name: Add CNAME file
         run: echo "hyperhexsolutions.com" >> dist/my-demo-app/CNAME
-
+      
+      - name: node version
+        run: node -v
+      
       - name: Deploy to GitHub Pages 
         run: npx ngh --no-silent --dir=dist/my-demo-app 
         env:
