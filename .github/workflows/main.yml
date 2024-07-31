@@ -6,10 +6,10 @@ on:
       - development
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
-  
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -30,7 +30,7 @@ jobs:
         run: npm i 
 
       - name: Install GHPAGES
-        run: ng add angular-cli-ghpages --skip-confirmation
+        run: ng add angular-cli-ghpages@latest --skip-confirmation
 
       - name: Build the application
         run: ng build --base-href https://hyperhexsolutions.com
