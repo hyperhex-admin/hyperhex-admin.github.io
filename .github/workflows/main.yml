@@ -7,8 +7,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
-     
+
       uses: bitovi/github-actions-angular-to-github-pages@v1.0.0
       with:
         path: dist/my-demo-app  
