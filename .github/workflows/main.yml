@@ -20,7 +20,8 @@ jobs:
 
       - name: Install dependencies
         run: npm i 
-        run: npm i -g angular-cli-ghpages
+
+      - name: Install GHPAGES
         run: ng add angular-cli-ghpages
 
       - name: Build the application
