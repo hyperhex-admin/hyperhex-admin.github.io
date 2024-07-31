@@ -33,6 +33,11 @@ jobs:
       - name: Add CNAME file
         run: echo "hyperhexsolutions.com" >> dist/my-demo-app/CNAME
 
-      - name: Deploy to GitHub Pages
-        run: npx ngh --dir=dist/my-demo-app
+      - name: Deploy Angular to GitHub Pages
+     
+      uses: bitovi/github-actions-angular-to-github-pages@v1.0.0
+      with:
+        path: dist/my-demo-app  
+        build_command: ng build --base-href https://hyperhexsolutions.com 
+                
 
